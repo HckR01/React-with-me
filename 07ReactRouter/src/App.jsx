@@ -8,7 +8,7 @@ function App() {
 
   return (
     <>
-     <h1>React with me</h1>
+     
     </>
   )
 }
