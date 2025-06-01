@@ -4,6 +4,11 @@
       --red: #d01c28;
       --gray:#2e2e2e;
 }
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  
+}
 * {
   box-sizing: border-box;
   margin: 0;
@@ -19,8 +24,6 @@ body {
 nav {
       display: flex;
       justify-content: space-between;
-      max-width: 1280px;
-      margin:0 auto;
       height: 72px;
       align-items: center;
 
@@ -48,5 +51,38 @@ nav {
   /* component hero css */
 
   .hero{
+      height: calc(100vh - 72px);
       display: flex;
+      align-items: center;
   }
+
+  .hero h1 {
+      font-size: 104px;
+      font-weight: 800;
+      line-height: 1.2;
+      margin-bottom: 20px;
+      color: var(--gray);
+  }
+
+  .hero p {
+      font-weight: 400;
+      color: var(--gray);
+      
+  }
+
+  .hero-btn{
+      display: flex;
+      gap: 20px;
+      margin-top: 30px;
+  }
+
+button.second-btn {
+  /* more specific selector */
+  background-color: transparent;
+  border: 2px solid var(--red);
+  color: var(--red);
+}
+.brand-logo{
+      display: flex;
+      gap: 10px;
+}

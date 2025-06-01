@@ -1,6 +1,6 @@
 const Hero = () => {
   return (
-    <main className="hero">
+    <main className="hero container">
       <div className="hero-content">
         <h1>YOUR FEET DESERVE THE BEST</h1>
         <p>
@@ -9,7 +9,7 @@ const Hero = () => {
 
         <div className="hero-btn">
           <button>Shop Now</button>
-          <button>Learn More</button>
+          <button className="second-btn">Learn More</button>
         </div>
 
         <div className="shopping">
