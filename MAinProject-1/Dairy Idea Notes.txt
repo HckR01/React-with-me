@@ -1,0 +1,270 @@
+1. Login Page
+Username input
+
+Password input
+
+Login button
+
+Purpose: Authenticate user and identify role (Admin / Staff)
+
+2. Admin Dashboard
+Navbar: Dashboard | Users | Reports | Logout
+
+Summary cards:
+
+Total Milk Produced (liters)
+
+Total Sales (₹)
+
+Current Stock (liters)
+
+Pending Orders
+
+Graphs/Charts showing trends
+
+Recent orders table
+
+User Management section (add/edit/delete staff users)
+
+3. Staff Dashboard (Milk Input)
+Navbar: Milk Input | Logout
+
+Milk Collection Input Form:
+
+Farmer Name
+
+Farmer ID
+
+Quantity (liters)
+
+Milk Quality (Fat %, SNF, Grade dropdown)
+
+Collection Date
+
+Submit button
+
+4. User Management (Admin only)
+Navbar: Dashboard | Users | Reports | Logout
+
+List of users:
+
+User ID
+
+Name
+
+Role (Admin / Staff)
+
+Actions (Edit | Delete)
+
+Add New User button
+
+5. Reports (Admin only) (Optional - future)
+Milk production reports by date/farmer
+
+Sales reports
+
+Stock history
+
+............................................................STRUCTURE.........................................
+
+															
+client/
+├── public/
+├── src/
+│   ├── components/        # Reusable components
+│   │   ├── LoginForm.jsx
+│   │   ├── Navbar.jsx
+│   │   └── SummaryCard.jsx
+│   │
+│   ├── pages/             # Major pages/tabs
+│   │   ├── LoginPage.jsx
+│   │   ├── AdminDashboard.jsx
+│   │   ├── StaffDashboard.jsx
+│   │   ├── MilkInput.jsx
+│   │   └── UserManagement.jsx
+│   │
+│   ├── services/          # API calling functions
+│   │   └── authService.js
+│   │   └── milkService.js
+│   │
+│   ├── utils/             # Helper functions (token, role check, etc.)
+│   ├── App.jsx
+│   └── index.js 
+
+/...........................................................................................................................
+
+client/
+├── public/                   # Static files like index.html, favicon etc.
+│
+├── src/                      # Main source folder for React code
+│   ├── components/           # Reusable small UI blocks
+│   │   ├── LoginForm.jsx     # Login form component
+│   │   ├── Navbar.jsx        # Top navigation bar for all pages
+│   │   ├── SummaryCard.jsx   # Small dashboard cards (Milk total, sales etc.)
+│   │   ├── InputForm.jsx     # Form to collect milk data
+│   │   └── ...               # Other UI components (like FarmerList, Footer etc.)
+│   │
+│   ├── pages/                # Full pages (Admin, Staff, Login)
+│   │   ├── LoginPage.jsx     # Full login page layout
+│   │   ├── AdminDashboard.jsx# Admin full dashboard layout
+│   │   ├── StaffDashboard.jsx# Staff milk input screen
+│   │   └── ...               # Other screens like ReportsPage, ErrorPage etc.
+│   │
+│   ├── services/             # All API calling functions (uses axios/fetch)
+│   │   ├── authService.js    # login(), logout(), token etc.
+│   │   ├── milkService.js    # addMilk(), getMilkList() etc.
+│   │   └── userService.js    # addUser(), getAllUsers() etc.
+│   │
+│   ├── App.jsx               # Main component where routing is defined
+│   ├── index.js              # React app entry point
+│   └── styles/               # Optional: custom CSS/SCSS files
+│
+├── .env                      # Environment variables (API URL etc.)
+├── package.json              # React project dependencies
+└── README.md                 # Project description
+................................................................................................................................
+
+layouts 
+
+1. Login Page Layout
++-------------------------------+
+|       Dairy Farm Login        |
++-------------------------------+
+| Username: [______________]    |
+| Password: [______________]    |
+|                               |
+|    [ Login Button ]           |
+|                               |
+|  Don't have an account?       |
+|  [ Contact Admin ]            |
++-------------------------------+
+
+2. Admin Dashboard Layout
++--------------------------------------------------+
+| Navbar: Dashboard | Milk Input | Users | Logout  |
++--------------------------------------------------+
+
+| Welcome, Admin!
+
++----------------+  +----------------+  +----------------+
+| Total Milk     |  | Total Sales ₹  |  | Pending Orders |
+|     520 L      |  |     ₹12,500    |  |       4        |
++----------------+  +----------------+  +----------------+
+
++--------------------------------------------------+
+| Milk Production Graph / Sales Trends Chart       |
++--------------------------------------------------+
+
++--------------------------------------------------+
+| Recent Orders Table                              |
+| Order ID | Customer | Qty | Status | Date        |
+| #001     | Ramesh   | 10L | Done   | 5 June      |
+| #002     | Sita     | 5L  | Pending| 5 June      |
++--------------------------------------------------+
+
++--------------------------------------------------+
+| User Activity Summary (optional)                 |
++--------------------------------------------------+
+
+
+===========================================================================================
+
+3. Staff Dashboard Layout (Milk Input)
++--------------------------------------------+
+| Navbar: Milk Input | View Logs | Logout     |
++--------------------------------------------+
+
+| Welcome, Staff Name
+
++--------------------------------------------+
+| Milk Collection Form                       |
++--------------------------------------------+
+| Farmer Name:     [__________]              |
+| Farmer ID:       [__________]              |
+| Milk Quantity:   [____ Litre ]             |
+| Milk Quality:    Fat % [__] SNF [__]       |
+| Grade:           [Dropdown]                |
+| Date:            [____/__/__]              |
+|                                            |
+| [ Submit Entry ]                           |
++--------------------------------------------+
+
++--------------------------------------------+
+| View Previous Entries (optional)           |
++--------------------------------------------+
+
+
+=========================================================================================
+
+4. User Management Page (Admin Only)
+
++--------------------------------------------+
+| Navbar: Dashboard | Users | Reports | Logout |
++--------------------------------------------+
+
+| Manage Users
+
++--------------------------------------------+
+| ID | Name      | Role   | Actions          |
+| U1 | Suresh    | Staff  | Edit | Delete     |
+| U2 | Manager1  | Admin  | Edit | Delete     |
++--------------------------------------------+
+
+| [ Add New User Button ]                    |
++--------------------------------------------+
+| New User Modal (popup):
+  - Name
+  - Email
+  - Role (Dropdown: Admin/Staff)
+  - Password
+  - [Save] [Cancel]
+ =========================================================================================
+ 6. Error / Not Found Page (Bonus)
+
++-------------------------------+
+|          404 Error            |
+|      Page Not Found :(        |
+|                               |
+|   [ Go Back to Dashboard ]    |
++-------------------------------+
+
+
+======================================================================================================
+
+
+client/
+├── public/
+│   └── index.html          # Main HTML file
+│
+├── src/
+│   ├── components/         # Reusable UI components
+│   │   ├── Navbar.jsx
+│   │   ├── LoginForm.jsx
+│   │   ├── SummaryCard.jsx
+│   │   ├── MilkInputForm.jsx
+│   │   ├── UserTable.jsx
+│   │   └── Modal.jsx
+│   │
+│   ├── pages/              # Full pages for routing
+│   │   ├── LoginPage.jsx
+│   │   ├── AdminDashboard.jsx
+│   │   ├── StaffDashboard.jsx
+│   │   └── UserManagement.jsx
+│   │
+│   ├── services/           # API calling functions (can be placeholders initially)
+│   │   ├── authService.js
+│   │   ├── milkService.js
+│   │   └── userService.js
+│   │
+│   ├── utils/              # Helper functions (like validation)
+│   │   └── helpers.js
+│   │
+│   ├── App.jsx             # Main component with routes
+│   ├── index.js            # React entry point
+│   └── styles/             # CSS files
+│       ├── main.css
+│       ├── Navbar.css
+│       └── Dashboard.css
+│
+├── package.json
+└── README.md
